@@ -6,6 +6,7 @@ public class CannonToss : MonoBehaviour
 {
     private Camera mainCamera;
     public GameObject ballPrefab;
+    public Vector3 ballDirection;
 
     Plane basePlane = new Plane(-Vector3.forward, new Vector3(0, 0, 5));
 
@@ -30,10 +31,18 @@ public class CannonToss : MonoBehaviour
 
             Debug.Log(worldPosition);
 
+            ballDirection = new Vector3(worldPosition.x - transform.position.x, 0, worldPosition.z - transform.position.z);
             
 
+            float angle = Vector3.Angle(ballDirection, Vector3.forward);
+            if (worldPosition.x < 0)
+                angle = -angle;
+
+            
+            Debug.Log(angle);
+
             if (touch.phase == TouchPhase.Began)
-                Instantiate(ballPrefab, worldPosition, Quaternion.identity);
+                Instantiate(ballPrefab, transform.position, Quaternion.Euler(0, angle, 0));
         }
        
 

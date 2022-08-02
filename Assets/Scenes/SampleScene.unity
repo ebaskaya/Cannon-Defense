@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112231130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8, z: -63.6}
+  m_LocalPosition: {x: 0, y: 4.09, z: -63.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 5352862280715547583, guid: a2f370015dfbd994d89762ed3fb1e6d6,
     type: 3}
+  ballDirection: {x: 0, y: 0, z: 0}
 --- !u!4 &707554331
 Transform:
   m_ObjectHideFlags: 0
@@ -356,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707554329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5462205, y: 2.3839128, z: -1.391149}
+  m_LocalPosition: {x: 0, y: 5, z: -58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
