@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class MoveRocketForward : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 20.0f;
+    
+
+    
+    private float randomSpeed;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        randomSpeed = Random.Range(20, 40);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * speed); //Vector3 up default
+        transform.Translate(Vector3.up * Time.deltaTime * randomSpeed);
+        
+        
     }
 }

@@ -11,6 +11,7 @@ public class TimedSpawner : MonoBehaviour
     private float xRange = 55.0f;
     private float yPos = 5.0f;
     private float zPos = 81.0f;
+    private float randomSpeed;
     
     
     // Start is called before the first frame update
@@ -23,5 +24,8 @@ public class TimedSpawner : MonoBehaviour
     {
         Vector3 pos = new Vector3(Random.Range(-xRange, xRange), yPos, zPos);
         Instantiate(rocket, pos, rocket.transform.rotation);
+        
+        
+
     }
 }

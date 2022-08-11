@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOutOfBounds : MonoBehaviour
+public class DetectCollisions : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,11 +13,12 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z < -65.0f)
-        {
-            Destroy(gameObject);
-            GameManager.Instance.GetComponent<GameManager>().decreaseHealth();
-        }
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+        Destroy(other.gameObject);
     }
 }
