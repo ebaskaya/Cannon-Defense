@@ -16,7 +16,8 @@ public class DestroyOutOfBounds : MonoBehaviour
         if(transform.position.z < -65.0f)
         {
             Destroy(gameObject);
-            GameManager.Instance.GetComponent<GameManager>().decreaseHealth();
+            
+            GameManager.Instance.decreaseHealth();
         }
         
     }

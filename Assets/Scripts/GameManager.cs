@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject rocketSpawner;
 
     public int maxHealth = 3;
-    //public int currentHealth;
+    
     public Image[] hearts;
     [SerializeField] int heartIndex = 0;
+
+    public Text ingameScore;
+    public Text scoreText;
+    private int score = 0;
 
     private void Awake()
     {
@@ -28,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //currentHealth = maxHealth;
+        
         gameOverScreen.gameObject.SetActive(false);
     }
 
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour
     
     void gameOver()
     {
-        
+        scoreText.text = score.ToString() + " Points";
         gameOverScreen.gameObject.SetActive(true);
         Destroy(cannonToss);
         Destroy(rocketSpawner);
@@ -59,6 +63,12 @@ public class GameManager : MonoBehaviour
             Invoke("gameOver", 0);
             
         }
+    }
+
+    public void addScore()
+    {
+        score += 50;
+        ingameScore.text = score.ToString();
     }
 
 }
