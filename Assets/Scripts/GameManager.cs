@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +14,18 @@ public class GameManager : MonoBehaviour
     public GameObject rocketSpawner;
 
     public int maxHealth = 3;
+    public int combo = 1;
     
     public Image[] hearts;
     [SerializeField] int heartIndex = 0;
 
     public Text ingameScore;
     public Text scoreText;
+    public Text highScoreText;
     private int score = 0;
+    private int highscore;
+
+    
 
     private void Awake()
     {
@@ -32,7 +38,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        highscore = PlayerPrefs.GetInt("highscore", 0);
         gameOverScreen.gameObject.SetActive(false);
     }
 
@@ -42,11 +48,23 @@ public class GameManager : MonoBehaviour
         
     }
     
+    public void restart()
+    {
+        SceneManager.LoadScene("game");
+    }
 
-    
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     void gameOver()
     {
+        if (score > highscore)
+            PlayerPrefs.SetInt("highscore", score);
         scoreText.text = score.ToString() + " Points";
+        highscore = PlayerPrefs.GetInt("highscore");
+        highScoreText.text = "Highscore: " + highscore.ToString() + " Points";
         gameOverScreen.gameObject.SetActive(true);
         Destroy(cannonToss);
         Destroy(rocketSpawner);
@@ -67,8 +85,17 @@ public class GameManager : MonoBehaviour
 
     public void addScore()
     {
-        score += 50;
+        score += 50 * combo;
         ingameScore.text = score.ToString();
+    }
+
+    public void increaseCombo()
+    {
+        combo++;
+    }
+    public void destroyCombo()
+    {
+        combo = 1;
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
+    public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,13 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        Instantiate(explosion, other.transform.position, Quaternion.identity);
+        
         Destroy(gameObject);
         Destroy(other.gameObject);
+
+        GameManager.Instance.increaseCombo();
         GameManager.Instance.addScore();
     }
 }

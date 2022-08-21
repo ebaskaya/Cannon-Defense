@@ -18,10 +18,13 @@ public class BallBound : MonoBehaviour
     {
         if (transform.position.x < -xBound || transform.position.x > xBound)
         {
+            GameManager.Instance.destroyCombo();
             Destroy(gameObject);
+            
         }
         else if(transform.position.z > zBound)
         {
+            GameManager.Instance.destroyCombo();
             Destroy(gameObject);
         }
     }

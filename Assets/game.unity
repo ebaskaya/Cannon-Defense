@@ -746,6 +746,7 @@ MonoBehaviour:
   heartIndex: 0
   ingameScore: {fileID: 1845323746}
   scoreText: {fileID: 1497034088}
+  highScoreText: {fileID: 338855917}
 --- !u!4 &561915738
 Transform:
   m_ObjectHideFlags: 0
@@ -923,7 +924,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.494
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1050,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca31aae349118d438e90fc40b667620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadBar: {fileID: 698791327}
   ballPrefab: {fileID: 5352862280715547583, guid: a2f370015dfbd994d89762ed3fb1e6d6,
     type: 3}
   ballDirection: {x: 0, y: 0, z: 0}
