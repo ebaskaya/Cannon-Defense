@@ -73,7 +73,8 @@ public class GameManager : MonoBehaviour
     
     public void decreaseHealth()
     {
-        
+
+        Vibrator.Vibrate(250);
         hearts[heartIndex].enabled = false;
         heartIndex++;
         if(heartIndex >= 3)
