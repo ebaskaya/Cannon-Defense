@@ -25,10 +25,10 @@ public class TimedSpawner : MonoBehaviour
     {
         randomNumber = Random.Range(0, 10);
         Vector3 pos = new Vector3(Random.Range(-xRange, xRange), yPos, zPos);
-        if(randomNumber <= 8)
-            Instantiate(rocket, pos, rocket.transform.rotation);
-        else
+        if(randomNumber >= 8 && GameManager.Instance.getPowerup() != true)
             Instantiate(powerup, pos, powerup.transform.rotation);
+        else
+            Instantiate(rocket, pos, rocket.transform.rotation);
 
 
 

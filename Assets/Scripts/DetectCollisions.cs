@@ -20,10 +20,16 @@ public class DetectCollisions : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        
+        if (other.gameObject.name == "Powerup(Clone)")
+            GameManager.Instance.turnOnPowerup();
+
         Instantiate(explosion, other.transform.position, Quaternion.identity);
         
         Destroy(gameObject);
         Destroy(other.gameObject);
+
+        
 
         GameManager.Instance.increaseCombo();
         GameManager.Instance.addScore();

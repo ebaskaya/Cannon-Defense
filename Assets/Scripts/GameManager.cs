@@ -25,7 +25,11 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int highscore;
 
-    
+    private bool havePowerup = false;
+
+    private WaitForSeconds powerupTimer = new WaitForSeconds(10);
+
+
 
     private void Awake()
     {
@@ -97,6 +101,27 @@ public class GameManager : MonoBehaviour
     public void destroyCombo()
     {
         combo = 1;
+    }
+
+    public void turnOnPowerup()
+    {
+        havePowerup = true;
+        StartCoroutine(powerupCountdown());
+    }
+
+    public void turnOffPowerup()
+    {
+        havePowerup = false;
+    }
+    public bool getPowerup()
+    {
+        return havePowerup;
+    }
+
+    private IEnumerator powerupCountdown()
+    {
+        yield return powerupTimer;
+        turnOffPowerup();
     }
 
 }

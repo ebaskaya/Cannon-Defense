@@ -10,7 +10,8 @@ public class BallMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (GameManager.Instance.getPowerup() == true)
+            speed = 150;
     }
 
     // Update is called once per frame

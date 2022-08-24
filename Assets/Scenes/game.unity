@@ -745,6 +745,7 @@ MonoBehaviour:
   cannonToss: {fileID: 707554329}
   rocketSpawner: {fileID: 1853257995}
   maxHealth: 0
+  combo: 1
   hearts:
   - {fileID: 1532412563}
   - {fileID: 588944921}
@@ -2066,6 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ec5dabeb6b4c24fbd410f5bc823d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerup: {fileID: 6792182501376003618, guid: 3b1b8a46fc8549b48a4f68790980043b, type: 3}
   rocket: {fileID: 7299120952828421441, guid: 7d2e4f174ed40f24da768df777eedb3d, type: 3}
   spawnTime: 1
   spawnDelay: 1.8
