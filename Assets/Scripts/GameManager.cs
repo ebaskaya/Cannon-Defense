@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
 
     private bool havePowerup = false;
 
-    private WaitForSeconds powerupTimer = new WaitForSeconds(10);
+    private int powerUpTime = 10;
+    private WaitForSeconds powerupTimer = new WaitForSeconds(1);
+
+    public Slider powerupSlider;
 
 
 
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         highscore = PlayerPrefs.GetInt("highscore", 0);
         gameOverScreen.gameObject.SetActive(false);
+        powerupSlider.value = 0; 
     }
 
     // Update is called once per frame
@@ -120,8 +124,20 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator powerupCountdown()
     {
-        yield return powerupTimer;
+        powerupSlider.value = 1;
+        for(int i = 0; i < powerUpTime; i++)
+        {
+
+            powerupSlider.value = (powerUpTime - i) / 10.0f;
+            yield return powerupTimer;
+        }
+        powerupSlider.value = 0;
+        
         turnOffPowerup();
     }
 
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 }

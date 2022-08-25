@@ -41,7 +41,7 @@ public class CannonToss : MonoBehaviour
 
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 124.2f)); 
 
-            Debug.Log(worldPosition);
+            //Debug.Log(worldPosition);
 
             ballDirection = new Vector3(worldPosition.x - transform.position.x, 0, worldPosition.z - transform.position.z);
             
@@ -51,7 +51,7 @@ public class CannonToss : MonoBehaviour
                 angle = -angle;
 
             
-            Debug.Log(angle);
+            //Debug.Log(angle);
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -72,7 +72,7 @@ public class CannonToss : MonoBehaviour
         while(currentProgress < maxProgress)
         {
             currentProgress += maxProgress / 5;
-            reloadBar.value = currentProgress / 100;
+            reloadBar.value = currentProgress / 100.0f;
             yield return reloadTick;
             Debug.Log(currentProgress);
         }
