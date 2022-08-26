@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void decreaseHealth()
     {
 
-        Vibration.Vibrate(250);
+        
         hearts[heartIndex].enabled = false;
         heartIndex++;
         if(heartIndex >= 3)
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
             Invoke("gameOver", 0);
             
         }
+        Vibration.Vibrate(250);
     }
 
     public void addScore()
